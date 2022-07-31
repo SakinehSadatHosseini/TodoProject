@@ -1,5 +1,6 @@
-@extends('layouts\HeaderFooter')
-@section('content')
+@extends('layouts\todoHeader')
+@section('second_header')
+@parent
 <div class="row" style="margin-top: 20px;">
     <form class="row justify-content-center" method="post" action="{{route('todo.doneDelete') }}">
         @csrf

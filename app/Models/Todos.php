@@ -14,7 +14,7 @@ class Todos extends Model
         $todos =array();
         if ($deleted==1) {
             $todos= self::query()->where('delete_status', 1)->get()->all();
-        } else {
+        } elseif ($deleted==0) {
             if ($done==0) {
                 if ($category_id==0) {
                     $todos= self::query()->where('delete_status', 0)->whereNull('done_at')->get()->all();
@@ -24,6 +24,9 @@ class Todos extends Model
             } else {
                 $todos= self::query()->where('delete_status', 0)->whereNotNull('done_at')->get()->all();
             }
+        }
+        foreach ($todos as $todo) {
+            $todo['category_title']=Categories::where('id', $todo->category_id)->first()->title;
         }
         return $todos;
     }
@@ -91,5 +94,16 @@ class Todos extends Model
             return $todo;
         }
         return;
+    }
+
+    public static function todoDelete_category($category_id, $status)
+    {
+        if ($status==0) {
+            $todo = self::query()->where('category_id', $category_id)->update(['delete_status'=>2]);
+        } else {
+            $todo = self::query()->where('category_id', $category_id)->update(['delete_status'=>0]);
+        }
+        
+        return $todo;
     }
 }

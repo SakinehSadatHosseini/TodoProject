@@ -27,17 +27,11 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page"
-                                    href="{{route('todos.home')}}">{{__('translate.remainedTodo')}}</a>
+                                    href="{{route('todos.home')}}">{{__('translate.todoManagement')}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('todos.done')}}">{{__('translate.doneTodo')}}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('todos.delete')}}">{{__('translate.deletedTodo')}}</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('todo.create')}}">{{__('translate.newTodo')}}</a>
+                                <a class="nav-link"
+                                    href="{{route('categories.home')}}">{{__('translate.categoryManagement')}}</a>
                             </li>
                         </ul>
                     </div>
@@ -46,35 +40,12 @@
         </div>
 
 
-        <div id="header2" class="row">
-            <nav class="navbar small navbar-expand-lg bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand fs-6" href="#">{{__('translate.categories')}}</a>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            @foreach ($categories as $category)
-                            <li class="nav-item ">
-                                <a class="nav-link " href="{{route('todos.category',['category_id'=> $category->id])}}"
-                                    id="navbarDropdown" role="button" aria-expanded="false">
-                                    @php echo $category->title @endphp
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
 
-                    </div>
-                </div>
-            </nav>
 
-        </div>
 
-        @yield('content')
+
+        @yield('second_header')
         <div id="footer" class="row"></div>
 </body>
 

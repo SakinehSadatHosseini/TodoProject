@@ -25,7 +25,7 @@ class TodosController extends Controller
         return $this->todosPage($category_id, $done, $deleted);
     }
 
-    public function todosPageDelete()
+    public function todosPageDeleted()
     {
         $category_id=0;
         $done=0;

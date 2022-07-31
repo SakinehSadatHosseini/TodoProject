@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodosController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::controller(TodosController::class)
     ->as('todos.')
     ->group(function () {
         Route::get('done', 'todosPageDone')->name('done');
-        Route::get('deleted', 'todosPageDelete')->name('delete');
+        Route::get('deleted', 'todosPageDeleted')->name('delete');
         Route::get('category/{category_id}', 'todosPage')->name('category');
     });
 
@@ -45,5 +46,20 @@ Route::controller(TodosController::class)
             Route::post('store', 'storeTodo')->name('store');
             Route::post('update', 'updateTodo')->name('update');
             Route::post('done_delete', 'doneDeleteTodo')->name('doneDelete');
+        }
+    );
+
+Route::get('categories/index', [CategoriesController::class, 'categoriesPage'])->name('categories.home');
+Route::get('categories/deleted', [CategoriesController::class, 'categoriesPageDeleted'])->name('categories.delete');
+Route::controller(CategoriesController::class)
+    ->prefix('category')
+    ->as('category.')
+    ->group(
+        function () {
+            Route::get('create', 'createCategory')->name('create');
+            Route::get('viewUpdate/{id}', 'viewUpdatecategory')->name('viewUpdate');
+            Route::post('store', 'storecategory')->name('store');
+            Route::post('update', 'updateCategory')->name('update');
+            Route::post('delete', 'deletecategory')->name('delete');
         }
     );

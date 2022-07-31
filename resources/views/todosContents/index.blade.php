@@ -1,5 +1,7 @@
-@extends('layouts\HeaderFooter')
-@section('content')
+@extends('layouts\todoHeader')
+@section('second_header')
+@parent
+
 <div class="row" style="margin-top: 20px;">
     <div class="row">
         @foreach ($todos as $todo)
@@ -12,6 +14,9 @@
                     <p class="card-text">
                         @php echo $todo->description @endphp
                     </p>
+                    <p class="card-text">
+                        @php echo $todo->category_title @endphp
+                    </p>
                     <a href="{{route('todo.view',['id'=> $todo->id])}}"
                         class="btn btn-primary">{{__('translate.detail')}}</a>
                     @if ($todo->delete_status==0)
@@ -23,7 +28,6 @@
         </div>
         @endforeach
     </div>
-
 </div>
 
 

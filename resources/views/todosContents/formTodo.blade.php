@@ -1,7 +1,8 @@
-@extends('layouts\HeaderFooter')
-@section('content')
-@if ($errors->all())
+@extends('layouts\todoHeader')
+@section('second_header')
+@parent
 
+@if ($errors->all())
 <div class="alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)

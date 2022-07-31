@@ -1,10 +1,15 @@
 <?php
 return[
     'siteName'=>'برنامه لیست کارها',
+    'todoManagement'=>'مدیریت کارها',
+    'categoryManagement'=>'مدیریت دسته بندی ها',
     'remainedTodo'=>'کارهای انجام نشده',
     'doneTodo'=>'کارهای انجام شده',
     'deletedTodo'=>'کارهای حذف شده',
     'newTodo'=>'کار جدید',
+    'usableCategories'=>'دسته بندی های موجود',
+    'deletedCategories'=>'دسته بندی های حذف شده',
+    'newCategory'=>'دسته بندی جدید',
     'categories'=>'دسته بندی ها',
     'title'=>'عنوان',
     'description'=>'توضیحات',
@@ -17,5 +22,6 @@ return[
     'detail'=>'جزئیات',
     'edit'=>'ویرایش',
     'register'=>'ثبت',
-    'update'=>'به روز رسانی'
+    'update'=>'به روز رسانی',
+    ''
 ];

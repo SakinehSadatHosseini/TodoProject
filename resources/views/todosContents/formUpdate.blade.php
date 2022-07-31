@@ -1,5 +1,7 @@
-@extends('layouts\HeaderFooter')
-@section('content')
+@extends('layouts\todoHeader')
+@section('second_header')
+@parent
+
 @if ($errors->all())
 <div class="alert alert-danger">
     <ul>
